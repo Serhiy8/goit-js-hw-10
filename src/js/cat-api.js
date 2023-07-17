@@ -14,12 +14,11 @@ function fetchBreeds() {
     .then(response => response.data)
     .catch(error => {
       console.error(error.message);
-      throw new Error(
-        Notiflix.Report.failure(
-          'Error',
-          'Oops! Something went wrong! Try reloading the page!',
-          'OK'
-        )
+
+      Notiflix.Report.failure(
+        'Error',
+        'Oops! Something went wrong! Try reloading the page!',
+        'OK'
       );
     });
 }
@@ -32,12 +31,11 @@ function fetchCatByBreed(breedId) {
     .then(response => response.data)
     .catch(error => {
       console.error(error.message);
-      throw new Error(
-        Notiflix.Report.failure(
-          'Error',
-          'Oops! Something went wrong! Try reloading the page!',
-          'OK'
-        )
+
+      Notiflix.Report.failure(
+        'Error',
+        'Oops! Something went wrong! Try reloading the page!',
+        'OK'
       );
     });
 }
