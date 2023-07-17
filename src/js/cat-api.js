@@ -3,7 +3,6 @@ import Notiflix from 'notiflix';
 
 const API_KEY =
   'live_9g5UPCmeuCu52eJbf1zI7052rNo1lb5yQdXChTvsRz9jcJomAU3hQ2zX6TOgAiel';
-const loaderNew = document.querySelector('.loader-new');
 
 axios.defaults.headers.common['x-api-key'] = API_KEY;
 
