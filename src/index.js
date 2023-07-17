@@ -7,6 +7,8 @@ const refs = {
   catInfo: document.querySelector('.cat-info'),
 };
 
+refs.select.addEventListener('change', catSelected);
+
 fetchBreeds()
   .then(breeds => {
     const markupOption = breeds
@@ -22,8 +24,6 @@ fetchBreeds()
   .catch(() => {
     loaderHidden();
   });
-
-refs.select.addEventListener('change', catSelected);
 
 function catSelected(evt) {
   clearCatInfo();
