@@ -1,11 +1,9 @@
 import { fetchBreeds, fetchCatByBreed } from './js/cat-api.js';
 import SlimSelect from 'slim-select';
-import Notiflix from 'notiflix';
 
 const refs = {
   select: document.querySelector('.breed-select'),
   loader: document.querySelector('.loader-new'),
-  error: document.querySelector('.error'),
   catInfo: document.querySelector('.cat-info'),
 };
 
@@ -21,16 +19,8 @@ fetchBreeds()
       select: '#single',
     });
   })
-  .catch(error => {
+  .catch(() => {
     loaderHidden();
-    console.error(error);
-    throw new Error(
-      Notiflix.Report.failure(
-        'Error',
-        'Oops! Something went wrong! Try reloading the page!',
-        'OK'
-      )
-    );
   });
 
 refs.select.addEventListener('change', catSelected);
@@ -50,17 +40,8 @@ function catSelected(evt) {
         </div>
     `;
     })
-    .catch(error => {
-      console.log(error);
+    .catch(() => {
       loaderHidden();
-      clearCatInfo();
-      throw new Error(
-        Notiflix.Report.failure(
-          'Error',
-          'Oops! Something went wrong! Try reloading the page!',
-          'OK'
-        )
-      );
     });
 }
 
