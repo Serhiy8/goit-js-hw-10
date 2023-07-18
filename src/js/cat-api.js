@@ -6,7 +6,7 @@ const API_KEY =
 
 axios.defaults.headers.common['x-api-key'] = API_KEY;
 
-fetchBreeds = () => {
+const fetchBreeds = () => {
   const URL_BREEDS = 'https://api.thecatapi.com/v1/breeds';
 
   return axios
@@ -23,7 +23,7 @@ fetchBreeds = () => {
     });
 };
 
-fetchCatByBreed = breedId => {
+const fetchCatByBreed = breedId => {
   const URL_BREED_ID = `https://api.thecatapi.com/v1/images/search?breed_ids=${breedId}`;
 
   return axios
