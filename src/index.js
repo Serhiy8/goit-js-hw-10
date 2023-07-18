@@ -7,19 +7,15 @@ import {
   createSlimSelect,
 } from './js/domChange.js';
 
-const refs = {
-  select: document.querySelector('.breed-select'),
-  catInfo: document.querySelector('.cat-info'),
-};
-
-refs.select.addEventListener('change', catSelected);
+const select = document.querySelector('.breed-select');
+select.addEventListener('change', catSelected);
 
 fetchBreeds()
   .then(breeds => {
     const markupOption = breeds
       .map(({ id, name }) => `<option value="${id}">${name}</option>`)
       .join('');
-    refs.select.innerHTML = markupOption;
+    select.innerHTML = markupOption;
     createSlimSelect();
   })
   .catch(() => {
@@ -27,13 +23,14 @@ fetchBreeds()
   });
 
 function catSelected(evt) {
+  const catInfo = document.querySelector('.cat-info');
   clearCatInfo();
   showLoader();
   const breedId = evt.target.value;
   fetchCatByBreed(breedId)
     .then(breed => {
       loaderHidden();
-      refs.catInfo.innerHTML = createCatInfo(breed);
+      catInfo.innerHTML = createCatInfo(breed);
     })
     .catch(() => {
       loaderHidden();
