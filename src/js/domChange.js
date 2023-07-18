@@ -6,19 +6,19 @@ const refs = {
   catInfo: document.querySelector('.cat-info'),
 };
 
-loaderHidden = () => {
+const loaderHidden = () => {
   refs.loader.style.display = 'none';
 };
 
-showLoader = () => {
+const showLoader = () => {
   refs.loader.style.display = 'block';
 };
 
-clearCatInfo = () => {
+const clearCatInfo = () => {
   refs.catInfo.innerHTML = '';
 };
 
-createSlimSelect = () => {
+const createSlimSelect = () => {
   refs.select.setAttribute('id', 'single');
   new SlimSelect({
     select: '#single',

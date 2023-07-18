@@ -21,7 +21,7 @@ fetchBreeds()
     loaderHidden();
   });
 
-catSelected = evt => {
+const catSelected = evt => {
   const catInfo = document.querySelector('.cat-info');
   clearCatInfo();
   showLoader();
