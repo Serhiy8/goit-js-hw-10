@@ -6,7 +6,7 @@ const API_KEY =
 
 axios.defaults.headers.common['x-api-key'] = API_KEY;
 
-function fetchBreeds() {
+fetchBreeds = () => {
   const URL_BREEDS = 'https://api.thecatapi.com/v1/breeds';
 
   return axios
@@ -21,9 +21,9 @@ function fetchBreeds() {
         'OK'
       );
     });
-}
+};
 
-function fetchCatByBreed(breedId) {
+fetchCatByBreed = breedId => {
   const URL_BREED_ID = `https://api.thecatapi.com/v1/images/search?breed_ids=${breedId}`;
 
   return axios
@@ -38,6 +38,6 @@ function fetchCatByBreed(breedId) {
         'OK'
       );
     });
-}
+};
 
 export { fetchBreeds, fetchCatByBreed };

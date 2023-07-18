@@ -8,7 +8,6 @@ import {
 } from './js/domChange.js';
 
 const select = document.querySelector('.breed-select');
-select.addEventListener('change', catSelected);
 
 fetchBreeds()
   .then(breeds => {
@@ -22,7 +21,7 @@ fetchBreeds()
     loaderHidden();
   });
 
-function catSelected(evt) {
+catSelected = evt => {
   const catInfo = document.querySelector('.cat-info');
   clearCatInfo();
   showLoader();
@@ -35,4 +34,6 @@ function catSelected(evt) {
     .catch(() => {
       loaderHidden();
     });
-}
+};
+
+select.addEventListener('change', catSelected);
